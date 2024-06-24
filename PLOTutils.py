@@ -7,6 +7,14 @@ from typing import Optional
 import matplotlib as mpl
 
 
+
+FONTSIZE  = 22
+FIGSIZE   = (10, 8)
+
+CMS_PALETTE_1 = ["#5790fc", "#f89c20", "#e42536", "#964a8b", "#9c9ca1", "#7a21dd"]
+CMS_PALETTE_2 = ["#3f90da", "#ffa90e", "#bd1f01", "#94a4a2", "#832db6", "#a96b59", "#e76300", "#b9ac70", "#717581", "#92dadd"]
+
+
 def restore_minor_ticks_log_plot(
     ax: Optional[plt.Axes] = None, n_subticks=9
 ) -> None:
@@ -32,29 +40,6 @@ def restore_minor_ticks_log_plot(
     ax.yaxis.set_minor_locator(locmin)
     ax.yaxis.set_minor_formatter(mpl.ticker.NullFormatter())
     
-    
-def draw_cms_label(ax: plt.Axes, label: str = "Preliminary", rlabel: str = "NPLM", fontsize: int = 28, data: bool = True):
-    """
-    Draw a CMS label on the given matplotlib Axes object.
-
-    Parameters:
-    -----------
-    ax : matplotlib.axes.Axes
-        The Axes object to draw the label on.
-    label : str, optional
-        The label text to display (default is "Preliminary").
-    rlabel : str, optional
-        The right label text to display (default is "NPLM").
-    fontsize : int, optional
-        The font size to use for the label (default is 28).
-    """
-    hep.cms.label(
-        ax       = ax,
-        data     = data,
-        label    = label,
-        rlabel   = rlabel,
-        fontsize = fontsize
-    )
     
 
 def set_label_font(ax: plt.Axes, fontsize: int = 28):
